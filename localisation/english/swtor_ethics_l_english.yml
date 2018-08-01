@@ -1,0 +1,42 @@
+﻿l_english:
+
+ #####################################
+ # Ethics
+ #####################################
+
+ pop_ethic_dark_side_attraction_mult:0 "Dark Side Ethics Attraction"
+ pop_ethic_light_side_attraction_mult:0 "Light Side Ethics Attraction"
+ POP_ATTRACTION_DARK_SIDE_POS:0 "§G+ Dark Side Governing Ethics§!"
+ POP_ATTRACTION_DARK_SIDE_NEG:0 "§R- Dark Side Governing Ethics§!"
+ POP_ATTRACTION_LIGHT_SIDE_POS:0 "§G+ Light Side Governing Ethics§!"
+ POP_ATTRACTION_LIGHT_SIDE_NEG:0 "§R- Light Side Governing Ethics§!"
+
+ ethic_dark_side:0 "Dark Side"
+ ethic_dark_side_desc:1 "§LEvil is a word used by the ignorant and the weak. The dark side is about survival. The strength of the dark side lies with the power of the individual. The Force comes from within.§!\n"
+ ethic_light_side:0 "Light Side"
+ ethic_light_side_desc:1 "§LThe Force must be used for knowledge and defense. Never for attack. To know truly what is right, is when you are at peace, passive. When you are calm.§!\n"
+
+ #####################################
+ # Miscellaneous
+ #####################################
+
+ Old_Republic:1 "Old Republic"
+
+ #####################################
+ # Overrides
+ #####################################
+
+ leader_trait_expertise_psionics:0 "Expertise: The Force"
+ leader_trait_expertise_psionics_desc:1 "This leader is, following years of study, considered an expert in the subject of the Force."
+ POP_ATTRACTION_FORCE_POS:0 "§G+ Force Technologies§!"
+ POP_ATTRACTION_FORCE_NEG:0 "§R- Force Technologies§!"
+ ETHIC_ALLOWS_PSIONICS:0 "§ECan research §HForce§! technologies§!"
+ AUTH_HIVE_MIND_ASCENSION_RESTRICTIONS:0 "Cannot follow §HForce§! or §HSynthetic Ascension Paths§!"
+ AUTH_MACHINE_ASCENSION_RESTRICTIONS:0 "Cannot follow §HForce§!, §HBiological§!, or §HSynthetic Ascension Paths§!"
+ category_psionics_research_speed_mult:0 "Research Speed (Force)"
+ TRADITIONALIST_PSIONIC_PURSUIT:2 "Force Pursuit"
+
+ #psionics:0 "Psionics"
+ hive_mind_biological_ascension_only1:0"$TRIGGER_FAIL$A Hive Mind is incapable of starting down the path to Force Ascension."
+ ap_mind_over_matter_desc:0 "Force wielders are rare and valuable. In order to seek them out more efficienty, we will investigate the means by which to identify those amongst our people who have an innate Force sensitivity."
+ ap_transcendence_desc:0 "We stand on the threshold of true understanding of the Force. We are ready, and we have heard whispers from the netherworld of the Force..."

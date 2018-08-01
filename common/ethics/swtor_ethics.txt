@@ -1,0 +1,349 @@
+ethic_categories = {
+	frc = {}
+}
+
+ethic_dark_side = {
+	cost = 1
+	category = "frc"
+	category_value = 1
+
+	country_modifier = {
+		rivalry_influence_gain = 0.10
+		country_border_friction_mult = 0.10
+	}
+
+	tags = {
+		ETHIC_ALLOWS_CASTE_SYSTEM
+		ETHIC_ALLOWS_PURGE
+		ETHIC_ALLOWS_SLAVERY
+		ETHIC_ALLOWS_PSIONICS
+		ETHIC_ALLOWS_TEMPLE
+	}
+	
+	random_weight = {
+		value = 100
+	}
+
+	pop_attraction_tag = {
+		desc = POP_ATTRACTION_DARK_SIDE_POS
+		trigger = {
+			OR = {
+				has_ethic = ethic_dark_side
+			}
+		}
+	}
+
+	pop_attraction_tag = {
+		desc = POP_ATTRACTION_FACTION_POS
+		trigger = {
+			NOT = {
+				has_ethic = ethic_dark_side
+			}
+			#has_faction = dark_side
+			has_faction = totalitarian
+		}
+	}
+
+	pop_attraction_tag = {
+		desc = POP_ATTRACTION_RULER_FACTION_POS
+		trigger = {
+			exists = ruler
+			#ruler = { leader_of_faction = dark_side }
+			ruler = { leader_of_faction = totalitarian }
+		}
+	}
+
+	pop_attraction_tag = {
+		desc = POP_ATTRACTION_SLAVERY_POS
+		trigger = {
+			any_owned_planet = {
+				any_owned_pop = {
+					is_robot_pop = no
+					is_enslaved = yes
+				}
+			}
+		}
+	}
+
+	country_attraction = {
+		value = 1
+		modifier = {
+			factor = 0
+			NOR = {
+				is_country_type = default
+				has_ethic = ethic_dark_side
+				AND = {
+					is_country_type = primitive
+					capital_scope = {
+						has_observation_outpost = yes
+						observation_outpost = {
+							has_mission = native_indoctrination
+						}
+						observation_outpost_owner = {
+							OR = {
+								has_ethic = ethic_dark_side
+
+							}
+						}
+					}
+				}
+			}
+		}
+		# Effects of indoctrination mission
+		modifier = {
+			factor = 10
+			is_country_type = primitive
+			capital_scope = {
+				has_observation_outpost = yes
+				observation_outpost = {
+					has_mission = native_indoctrination
+				}
+				observation_outpost_owner = { has_ethic = ethic_dark_side }
+			}
+		}
+		modifier = {
+			factor = 5
+			is_country_type = primitive
+			capital_scope = {
+				has_observation_outpost = yes
+				observation_outpost = {
+					has_mission = native_indoctrination
+				}
+				observation_outpost_owner = { has_ethic = ethic_dark_side }
+			}
+		}
+		modifier = {
+			factor = 2
+			NOR = {
+				has_ethic = ethic_dark_side
+			}
+			#has_faction = dark_side
+			has_faction = totalitarian
+		}
+		modifier = {
+			factor = 1.5
+			exists = ruler
+			#ruler = { leader_of_faction = dark_side }
+			ruler = { leader_of_faction = totalitarian }
+		}
+		modifier = {
+			factor = 2
+			has_ethic = ethic_dark_side
+		}
+
+	}
+
+	# from = planet
+	pop_attraction = {
+		value = 1
+
+		modifier = {
+			factor = 0
+			has_trait = trait_hive_mind
+		}
+		modifier = {
+			factor = 0.25
+			is_enslaved = yes
+		}
+		modifier = {
+			factor = 1.5
+			has_trait = "trait_decadent"
+		}
+
+	}
+}
+
+ethic_light_side = {
+	cost = 1
+	category = "frc"
+	category_value = 3
+
+	category_opposite = yes
+
+	tags = {
+		ETHIC_NEVER_AUTOCRACY
+		ETHIC_ALLOW_UTOPIA
+		ETHIC_DISALLOW_MIGRATION_CONTROL
+		ETHIC_ALWAYS_REFUGEES
+		ETHIC_IMPROVED_DIPLOMACY
+		ETHIC_ALLOWS_TEMPLE
+	}
+
+	country_modifier = {
+		diplomacy_influence_cost = -0.15
+		country_trust_growth = 0.10
+
+	}
+
+	random_weight = {
+		value = 100
+	}
+
+	pop_attraction_tag = {
+		desc = POP_ATTRACTION_LIGHT_SIDE_POS
+		trigger = {
+
+				has_ethic = ethic_light_side
+
+		}
+	}
+
+	pop_attraction_tag = {
+		desc = POP_ATTRACTION_FACTION_POS
+		trigger = {
+				has_ethic = ethic_light_side
+				has_faction = progressive
+				#has_faction = light_side
+			}
+	}
+
+	pop_attraction_tag = {
+		desc = POP_ATTRACTION_RULER_FACTION_POS
+		trigger = {
+			exists = ruler
+			ruler = { leader_of_faction = progressive }
+			#ruler = { leader_of_faction = light_side }
+		}
+	}
+
+
+	pop_attraction_tag = {
+		desc = POP_ATTRACTION_LIGHT_SIDE_DIPLOMACY_POS
+		trigger = {
+			any_relation = {
+
+					has_ethic = ethic_light_side
+
+
+			}
+		}
+	}
+
+	pop_attraction_tag = {
+		desc = POP_ATTRACTION_SLAVERY_POS
+		trigger = {
+			any_owned_planet = {
+				any_owned_pop = {
+					is_robot_pop = no
+					is_enslaved = yes
+				}
+			}
+		}
+	}
+
+
+	pop_attraction_tag = {
+		desc = POP_ATTRACTION_DECADENT_NEG
+		trigger = {
+			any_owned_planet = {
+				any_owned_pop = {
+					has_trait = "trait_decadent"
+				}
+			}
+		}
+	}
+
+	country_attraction = {
+		value = 1
+		modifier = {
+			factor = 0
+			NOR = {
+				is_country_type = default
+				has_ethic = ethic_light_side
+				AND = {
+					is_country_type = primitive
+					capital_scope = {
+						has_observation_outpost = yes
+						observation_outpost = {
+							has_mission = native_indoctrination
+						}
+						observation_outpost_owner = {
+
+								has_ethic = ethic_light_side
+
+						}
+					}
+				}
+			}
+		}
+		# Effects of indoctrination mission
+
+		modifier = {
+			factor = 5
+			is_country_type = primitive
+			capital_scope = {
+				has_observation_outpost = yes
+				observation_outpost = {
+					has_mission = native_indoctrination
+				}
+				observation_outpost_owner = { has_ethic = ethic_light_side }
+			}
+		}
+		modifier = {
+			factor = 2
+			has_ethic = ethic_light_side
+			has_faction = progressive
+			#has_faction = light_side
+		}
+		modifier = {
+			factor = 1.5
+			exists = ruler
+			ruler = { leader_of_faction = progressive }
+			#ruler = { leader_of_faction = light_side }
+		}
+		modifier = {
+			factor = 2
+			has_ethic = ethic_light_side
+		}
+
+
+		modifier = {
+			factor = 1.5
+			any_relation = {
+
+					has_ethic = ethic_light_side
+
+
+			}
+		}
+		modifier = {
+			factor = 2.0
+			any_relation = {
+				has_migration_access = root
+				OR = {
+					has_ethic = ethic_light_side
+
+				}
+			}
+		}
+	}
+
+	# from = planet
+	pop_attraction = {
+		value = 1
+
+		modifier = {
+			factor = 0
+			has_trait = trait_hive_mind
+		}
+		modifier = {
+			factor = 0.5
+			has_trait = "trait_decadent"
+		}
+		modifier = {
+			factor = 4.0
+			is_enslaved = yes
+		}
+		modifier = {
+			factor = 1.5
+			is_enslaved = no
+			from = {
+				any_owned_pop = {
+					is_robot_pop = no
+					is_enslaved = yes
+				}
+			}
+		}
+
+	}
+}
